@@ -5068,7 +5068,82 @@
         );
 
 
+/* =================================================
+   SETTINGS DRAWER
+================================================= */
 
+function openSettingsDrawer() {
+
+    settingsOverlay.style.display = "block";
+
+    requestAnimationFrame(() => {
+
+        settingsOverlay.style.opacity = "1";
+
+        settingsDrawer.style.opacity =
+            "1";
+
+        settingsDrawer.style.transform =
+            "translateY(0) scale(1)";
+
+        settingsDrawer.style.pointerEvents =
+            "auto";
+
+    });
+
+}
+
+
+function closeSettingsDrawer() {
+
+    settingsDrawer.style.opacity =
+        "0";
+
+    settingsDrawer.style.transform =
+        "translateY(30px) scale(.96)";
+
+    settingsDrawer.style.pointerEvents =
+        "none";
+
+    settingsOverlay.style.opacity =
+        "0";
+
+    setTimeout(() => {
+
+        settingsOverlay.style.display =
+            "none";
+
+    }, 300);
+
+}
+
+
+const settingsButton =
+    document.querySelector(
+        ".top-btn:not(.primary)"
+    );
+
+
+if (settingsButton) {
+
+    settingsButton.addEventListener(
+        "click",
+        openSettingsDrawer
+    );
+
+}
+
+
+closeSettings.addEventListener(
+    "click",
+    closeSettingsDrawer
+);
+
+
+settingsOverlay.addEventListener(
+    "click",
+    closeSettingsDrawer
+);
         /* =================================================
            APPLY SETTINGS
         ================================================== */
