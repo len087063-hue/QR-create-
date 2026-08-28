@@ -2100,7 +2100,50 @@
         </main>
 
     </div>
-    
+/* =================================================
+   OPEN SETTINGS
+================================================= */
+
+function openSettingsDrawer() {
+
+    settingsOverlay.style.display = "block";
+
+    requestAnimationFrame(() => {
+
+        settingsOverlay.style.opacity = "1";
+
+        settingsDrawer.style.opacity = "1";
+
+        settingsDrawer.style.transform =
+            "translateY(0) scale(1)";
+
+        settingsDrawer.style.pointerEvents =
+            "auto";
+
+    });
+
+}
+
+
+const settingsButton =
+    document.getElementById(
+        "settingsButton"
+    );
+
+
+if (settingsButton) {
+
+    settingsButton.addEventListener(
+        "click",
+        openSettingsDrawer
+    );
+
+}
+
+
+/* =================================================
+   APPLY SETTINGS
+================================================= */    
     <!-- =====================================================
          SETTINGS DRAWER
     ====================================================== -->
